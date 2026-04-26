@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Hello from my Render Deployment App!");
+  const message = process.env.APP_MESSAGE || "Hello from my Render Deployment App!";
+  res.send(message);
 });
 
 app.get("/health", (req, res) => {
